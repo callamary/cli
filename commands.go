@@ -2,7 +2,9 @@ package cli
 
 import (
 	"fmt"
+	"os"
 	"os/exec"
+	"path/filepath"
 )
 
 var version = "0.1.1"
@@ -24,11 +26,28 @@ func about() {
 }
 
 func build() {
-	cmd := exec.Command("make", "build")
+	cwd, _ := os.Getwd()
+
+	fmt.Println("Use default location? (y/n)")
+	var response string
+	fmt.Scanln(&response)
+
+	var loc string
+	if response == "y" {
+		loc = filepath.Join(cwd, "/app/cli/main.go")
+	} else {
+		var custom string
+		fmt.Println("Enter commands main.go file path: ")
+		fmt.Scanln(&custom)
+		loc = filepath.Join(cwd, custom)
+	}
+
+	outputPath := filepath.Join(cwd, "call")
+	cmd := exec.Command("go", "build", "-o", outputPath, loc)
 	err := cmd.Run()
 	if err != nil {
 		Error("Build failed", err)
 	} else {
-		Success("Done")
+		Success("Done\n")
 	}
 }
