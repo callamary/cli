@@ -7,7 +7,7 @@ import (
 	"path/filepath"
 )
 
-var version = "0.1.1"
+var version = "0.1.2"
 
 func about() {
 	fmt.Println(`                               
@@ -28,7 +28,7 @@ func about() {
 func build() {
 	cwd, _ := os.Getwd()
 
-	fmt.Println("Use default location? (y/n)")
+	fmt.Println("Use default location? (y/n): ")
 	var response string
 	fmt.Scanln(&response)
 
