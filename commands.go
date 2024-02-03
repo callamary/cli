@@ -7,7 +7,7 @@ import (
 	"path/filepath"
 )
 
-var version = "0.1.3"
+var version = "1.0.0"
 
 func about() {
 	fmt.Println(`                               
