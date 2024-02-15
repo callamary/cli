@@ -23,13 +23,13 @@ var (
 
 // Default command available when no commands registered
 func init() {
-	RegisterCommand("about", about, "Show short information about Callamary CLI.")
-	RegisterCommand("build", build, "Compiles the CLI, incorporating any new user-defined commands.")
-	RegisterCommand("list", listCommands, "Outputs a list of all available commands.")
+	Command("about", about, "Show short information about Callamary CLI.")
+	Command("build", build, "Compiles the CLI, incorporating any new user-defined commands.")
+	Command("list", listCommands, "Outputs a list of all available commands.")
 }
 
 // Register command to be used in cli
-func RegisterCommand(name string, fn func(), description string) {
+func Command(name string, fn func(), description string) {
 	commandMap[name] = command{
 		Fn:          fn,
 		Description: description,

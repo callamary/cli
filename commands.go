@@ -7,7 +7,7 @@ import (
 	"path/filepath"
 )
 
-var version = "1.0.0"
+var version = "2.0.0"
 
 func about() {
 	fmt.Println(`                               
@@ -28,16 +28,17 @@ func about() {
 func build() {
 	cwd, _ := os.Getwd()
 
-	fmt.Println("Use default location? (y/n): ")
+	fmt.Println("Use default source location? (y/n): ")
 	var response string
 	fmt.Scanln(&response)
 
 	var loc string
 	if response == "y" {
-		loc = filepath.Join(cwd, "/app/cli/main.go")
+		path := "/cli/main.go"
+		loc = filepath.Join(cwd, path)
 	} else {
 		var custom string
-		fmt.Println("Enter commands main.go file path: ")
+		fmt.Println("Enter commands source file path: ")
 		fmt.Scanln(&custom)
 		loc = filepath.Join(cwd, custom)
 	}

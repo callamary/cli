@@ -27,7 +27,7 @@ func captureStdout(f func()) string {
 func TestRegisterAndExecuteCommand(t *testing.T) {
 	testCmdName := "test"
 	testCmdOutput := "Test command executed\n"
-	RegisterCommand(testCmdName, func() {
+	Command(testCmdName, func() {
 		fmt.Println("Test command executed")
 	}, "Test command")
 
