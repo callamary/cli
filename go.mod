@@ -1,3 +1,3 @@
-module github.com/callamary/cli
+module github.com/callamary/cli/v2
 
-go 1.21.6
+go 1.22
