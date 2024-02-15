@@ -27,11 +27,12 @@ This CLI package is designed to facilitate the integration of command-line inter
 
 ### How to use
 Assuming that your CLI commands are located in a commands directory, you can utilize the package as follows:
-```
-// main.go
+```go
+/* commands/main.go */
+
 func main() {
-  // Params: name, handler, short description
-  cli.Command("hello", hello, "Sample cli command")
+
+  cli.Command("hello", hello, "Greeting CLI command")
   ...
 
   cli.Run() // call run function at the bottom
