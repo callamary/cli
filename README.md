@@ -12,6 +12,7 @@
 </p>
 
 <p align="center">
+  <a href="https://github.com/callamary/cli/actions"><img src="https://github.com/callamary/cli/actions/workflows/go.yml/badge.svg" alt="Build Status"></a>
   <img src="https://img.shields.io/github/downloads/callamary/cli/total?color=dark-blue" alt="Downloads">
   <img src="https://img.shields.io/github/contributors/callamary/cli?color=dark-green" alt="Contributors">
   <img src="https://img.shields.io/github/issues/callamary/cli" alt="Issues">
@@ -61,7 +62,7 @@ After the executable has been generated, you can simply run ``./call build`` to 
 
 
 ### License
-Callamary CLI is open-sourced software licensed under the [MIT license](https://github.com/callamary/cli/LICENSE).
+Callamary CLI is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
 
 
