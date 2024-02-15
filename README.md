@@ -47,19 +47,31 @@ func hello() {
 Showing message in terminal will be ease. For example you need to print error message in terminal, you can call:
 
 #### Error
-```cli.Error("Error", error)```
+```go 
+  cli.Error("Error", error)
+```
 
 #### Warning
-```cli.Warning("Warning")```
+```go 
+  cli.Warning("Warning")
+```
 
 #### Success
-```cli.Success("Success")```
+```go 
+  cli.Success("Success")
+```
 
 
 ### Build the commands
 For the initial installation, you must manually build your executable by using the following command:
-``go build -o ./call ./commands/main.go``
-After the executable has been generated, you can simply run ``./call build`` to incorporate any newly added commands in subsequent updates.
+```bash 
+build -o ./call ./commands/main.go
+```
+After the executable has been generated, you can simply run 
+```bash 
+./call build
+```
+to incorporate any newly added commands in subsequent updates.
 
 
 ### License
