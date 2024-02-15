@@ -15,7 +15,7 @@
   <img src="https://img.shields.io/github/downloads/callamary/cli/total?color=dark-blue" alt="Downloads">
   <img src="https://img.shields.io/github/contributors/callamary/cli?color=dark-green" alt="Contributors">
   <img src="https://img.shields.io/github/issues/callamary/cli" alt="Issues">
-  <img src="https://img.shields.io/github/callamary/cli/LICENSE" alt="License">
+  <img src="https://img.shields.io/badge/license-MIT-green" alt="License">
 </p>
 
 
