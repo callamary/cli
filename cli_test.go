@@ -10,13 +10,24 @@ import (
 // helper function to capture stdout
 func captureStdout(f func()) string {
 	oldStdout := os.Stdout
-	r, w, _ := os.Pipe()
+	r, w, err := os.Pipe()
+	if err != nil {
+		panic("captureStdout: failed to create pipe: " + err.Error())
+	}
 	os.Stdout = w
+	restored := false
+	defer func() {
+		if !restored {
+			w.Close()
+			os.Stdout = oldStdout
+		}
+	}()
 
 	f()
 
 	w.Close()
 	os.Stdout = oldStdout
+	restored = true
 
 	var buf bytes.Buffer
 	buf.ReadFrom(r)

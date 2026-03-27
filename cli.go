@@ -16,7 +16,7 @@ var (
 	reset      = "\033[37m"
 	info       = "\033[36m"
 	warning    = "\033[33m"
-	err        = "\033[31m"
+	errorColor = "\033[31m"
 	success    = "\033[32m"
 	commandMap = make(map[string]command)
 )
@@ -81,7 +81,7 @@ func Run() {
 
 // Print error message
 func Error(message string, e error) {
-	fmt.Println(err + fmt.Sprintf("%s Error: %s", message, err) + reset)
+	fmt.Println(errorColor + fmt.Sprintf("%s Error: %s", message, e.Error()) + reset)
 }
 
 // Print warning message
@@ -91,5 +91,5 @@ func Warning(message string) {
 
 // Print success message
 func Success(message string) {
-	fmt.Printf("%s%s%s", success, message, reset)
+	fmt.Println(success + message + reset)
 }

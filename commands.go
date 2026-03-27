@@ -26,7 +26,11 @@ func about() {
 }
 
 func build() {
-	cwd, _ := os.Getwd()
+	cwd, err := os.Getwd()
+	if err != nil {
+		Error("Failed to get working directory", err)
+		return
+	}
 
 	fmt.Println("Use default source location /app/cli/main.go? (y/n): ")
 	var response string
@@ -34,8 +38,7 @@ func build() {
 
 	var loc string
 	if response == "y" {
-		path := "/app/cli/main.go"
-		loc = filepath.Join(cwd, path)
+		loc = "/app/cli/main.go"
 	} else {
 		var custom string
 		fmt.Println("Enter commands source file path: ")
@@ -45,10 +48,10 @@ func build() {
 
 	outputPath := filepath.Join(cwd, "call")
 	cmd := exec.Command("go", "build", "-o", outputPath, loc)
-	err := cmd.Run()
-	if err != nil {
-		Error("Build failed", err)
+	buildErr := cmd.Run()
+	if buildErr != nil {
+		Error("Build failed", buildErr)
 	} else {
-		Success("Done\n")
+		Success("Done")
 	}
 }
